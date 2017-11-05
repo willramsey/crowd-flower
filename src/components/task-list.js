@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-const tasks = [ 'BUY MILK', 'WALK THE DOG', 'TASK' ];
+import { connect } from 'react-redux';
 
 class TaskList extends Component {
   renderTasks() {
-    return tasks.map((task, index) => {
+    return this.props.tasks.map((task, index) => {
       return (
         <li key={index}>
           {task}
@@ -21,4 +21,10 @@ class TaskList extends Component {
   }
 }
 
-export default TaskList;
+function mapStateToProps(state) {
+  return {
+    tasks: state.tasks
+  };
+}
+
+export default connect(mapStateToProps)(TaskList);
