@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchTasks } from '../actions';
 
 class TaskList extends Component {
+  componentDidMount() {
+    this.props.fetchTasks()
+  }
+
   renderTasks() {
     return this.props.tasks.map((task, index) => {
       return (
@@ -27,4 +32,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(TaskList);
+export default connect(mapStateToProps, { fetchTasks })(TaskList);

@@ -1,7 +1,9 @@
-import { ADD_TASK } from '../actions/types';
+import { FETCH_TASKS, ADD_TASK } from '../actions/types';
 
 export default function(state = [], action) {
   switch (action.type) {
+    case FETCH_TASKS:
+      return [ ...action.payload.data.tasks ];
     case ADD_TASK:
       return [ action.payload, ...state ];
     default:
