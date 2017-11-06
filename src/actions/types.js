@@ -1,2 +1,9 @@
 export const ADD_TASK = 'add_task';
 export const FETCH_TASKS = 'fetch_tasks';
+export const SAVE_TASKS = 'save_tasks';
+export const SELECT_TASK = 'select_task';
+export const DELETE_TASK = 'delete_task';
+export const EDIT_TASK = 'edit_task';
+export const TASKS_UPDATED = 'tasks_updated';
+export const SHOW_MODAL = 'show_modal';
+export const HIDE_MODAL = 'hide_modal';

@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTasks } from '../actions';
+import { deleteTask, selectTask, tasksUpdated } from '../actions';
+import _ from 'lodash';
+import TaskListItem from './task-list-item';
 
 class TaskList extends Component {
-  componentDidMount() {
-    this.props.fetchTasks()
+  handleClick(idx) {
+    // this.props.deleteTask(idx);
+    this.props.selectTask(idx);
+  }
+
+  handleDelete(index) {
+    this.props.deleteTask(index);
+    this.props.tasksUpdated(true);
   }
 
   renderTasks() {
     return this.props.tasks.map((task, index) => {
       return (
-        <li key={index}>
-          {task}
-        </li>
+        <div key={index}>
+          <TaskListItem task={task} index={index} />
+          <button onClick={event => this.handleDelete(index)}>Delete</button>
+        </div>
       );
     });
   }
@@ -28,8 +37,9 @@ class TaskList extends Component {
 
 function mapStateToProps(state) {
   return {
-    tasks: state.tasks
+    tasks: state.tasks,
+    selected: state.selectedTask
   };
 }
 
-export default connect(mapStateToProps, { fetchTasks })(TaskList);
+export default connect(mapStateToProps, { deleteTask, selectTask, tasksUpdated })(TaskList);
