@@ -9,18 +9,18 @@ import { fetchTasks, addTask, saveTasks, selectTask, tasksUpdated, showModal } f
 class App extends Component {
   componentDidMount() {
     this.props.fetchTasks();
-    this.props.showModal(false);
   }
 
   handleAddClick() {
-    this.props.addTask('Enter Task');
+    this.props.addTask('TASK');
     this.props.selectTask(0);
     this.props.tasksUpdated(true);
   }
 
   handleSaveClick() {
-    console.log('save click: tasks', this.props.tasks);
-    this.props.saveTasks(this.props.tasks);
+    this.props.saveTasks(this.props.tasks, (success) => {
+      this.props.showModal(success);
+    });
     this.props.tasksUpdated(false);
   }
 

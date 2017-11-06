@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteTask, selectTask, tasksUpdated } from '../actions';
-import _ from 'lodash';
 import TaskListItem from './task-list-item';
 
 class TaskList extends Component {
   handleClick(idx) {
-    // this.props.deleteTask(idx);
     this.props.selectTask(idx);
   }
 

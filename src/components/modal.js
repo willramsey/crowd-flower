@@ -4,14 +4,11 @@ import { hideModal } from '../actions';
 
 class Modal extends Component {
   render() {
-    if (!this.props.show) {
-      console.log('success', this.props.success);
-      return null;
-    }
+    if (this.props.show === null) return null;
 
     return (
       <div>
-        {this.props.success ? 'success' : 'error'}
+        {this.props.show ? 'success' : 'error'}
         <button onClick={event => this.props.hideModal()}>Dismiss</button>
       </div>
     );
@@ -19,15 +16,8 @@ class Modal extends Component {
 }
 
 function mapStateToProps(state) {
-  const show = !!state.modal;
-  let success;
-  if (show) {
-    success = state.modal;
-    // console.log('success', success);
-  }
   return {
-    show,
-    success
+    show: state.modal
   };
 }
 
