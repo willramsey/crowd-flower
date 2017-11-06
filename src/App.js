@@ -19,6 +19,7 @@ class App extends Component {
   }
 
   handleSaveClick() {
+    console.log('save click: tasks', this.props.tasks);
     this.props.saveTasks(this.props.tasks);
     this.props.tasksUpdated(false);
   }

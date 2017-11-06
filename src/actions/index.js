@@ -5,24 +5,16 @@ import axios from 'axios';
 
 const myName = 'willramsey';
 const url = `https://cfassignment.herokuapp.com/${myName}/tasks`;
-const dummyTasks = ["WALK THE DOG", "BUY MILK", "TASK"];
+const exampleTasks = ["WALK THE DOG", "BUY MILK", "TASK"];
 
-export function fetchTasks() {
-  const request = axios.get(url);
-  console.log('request', request);
-  return {
-    type: FETCH_TASKS,
-    payload: request
-  };
+export const fetchTasks = () => async dispatch => {
+  const res = await axios.get(url);
+  dispatch({ type: FETCH_TASKS, payload: res.data });
 }
 
-export function saveTasks(tasks) {
-  const request = axios.post(url, tasks);
-  console.log('post request', request);
-  return {
-    type: SAVE_TASKS,
-    payload: request
-  };
+export const saveTasks = tasks => async dispatch => {
+  const res = await axios.post(url, { tasks });
+  dispatch({ type: SAVE_TASKS, payload: res.data });
 }
 
 export function addTask(task) {
