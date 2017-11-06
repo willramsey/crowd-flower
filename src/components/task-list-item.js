@@ -17,14 +17,16 @@ class TaskListItem extends Component {
   render() {
     if (this.props.index === this.props.selected) {
       return (
-        <input autoFocus
-          type="text"
-          value={this.props.task}
-          onChange={event => this.handleChange(event.target.value, this.props.index)}
-          onKeyDown={event => this.handleKeyPress(event.key)}
-          onFocus={event => event.target.select()}
-          onBlur={event => this.props.selectTask(null)}
-        />
+        <span>
+          <input autoFocus
+            type="text"
+            value={this.props.task}
+            onChange={event => this.handleChange(event.target.value, this.props.index)}
+            onKeyDown={event => this.handleKeyPress(event.key)}
+            onFocus={event => event.target.select()}
+            onBlur={event => this.props.selectTask(null)}
+          />
+        </span>
       );
     }
     return (

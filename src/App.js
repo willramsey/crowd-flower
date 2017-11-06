@@ -27,9 +27,9 @@ class App extends Component {
   render() {
     const enableSave = !this.props.updated;
     return (
-      <div>
-        <button onClick={(e) => this.handleAddClick()}>Add Task</button>
-          <button disabled={enableSave} onClick={(e) => this.handleSaveClick()}>Save</button>
+      <div className="container">
+        <button className="btn btn-primary" onClick={(e) => this.handleAddClick()}>Add Task</button>
+        <button className="btn btn-primary" disabled={enableSave} onClick={(e) => this.handleSaveClick()}>Save</button>
         <TaskList />
         <Modal />
       </div>

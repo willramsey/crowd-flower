@@ -14,14 +14,18 @@ class TaskList extends Component {
   }
 
   renderTasks() {
-    return this.props.tasks.map((task, index) => {
-      return (
-        <div key={index}>
-          <TaskListItem task={task} index={index} />
-          <button onClick={event => this.handleDelete(index)}>Delete</button>
-        </div>
-      );
-    });
+    return (
+      <div className="list-group">
+        {this.props.tasks.map((task, index) => {
+          return (
+            <div key={index} className="task-list-item">
+              <TaskListItem task={task} index={index} />
+              <button onClick={event => this.handleDelete(index)}>Delete</button>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 
   render() {
