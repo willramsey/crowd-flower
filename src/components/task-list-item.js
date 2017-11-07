@@ -21,7 +21,9 @@ class TaskListItem extends Component {
           <input autoFocus
             type="text"
             value={this.props.task}
-            onChange={event => this.handleChange(event.target.value, this.props.index)}
+            onChange={
+              event => this.handleChange(event.target.value, this.props.index)
+            }
             onKeyDown={event => this.handleKeyPress(event.key)}
             onFocus={event => event.target.select()}
             onBlur={event => this.props.selectTask(null)}
@@ -43,4 +45,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { selectTask, editTask, tasksUpdated })(TaskListItem);
+export default connect(mapStateToProps, {
+  selectTask, editTask, tasksUpdated
+})(TaskListItem);

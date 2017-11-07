@@ -14,25 +14,25 @@ class TaskList extends Component {
   }
 
   renderTasks() {
-    return (
-      <div className="list-group">
-        {this.props.tasks.map((task, index) => {
-          return (
-            <div key={index} className="task-list-item">
-              <TaskListItem task={task} index={index} />
-              <button onClick={event => this.handleDelete(index)}>Delete</button>
-            </div>
-          );
-        })}
-      </div>
-    );
+    return this.props.tasks.map((task, index) => {
+      return (
+        <li key={index} className="list-group-item task-item">
+            <TaskListItem task={task} index={index} />
+            <span
+              className="float-right"
+              onClick={event => this.handleDelete(index)}>
+                <i className="fa fa-trash-o fa-lg"></i>
+            </span>
+        </li>
+      );
+    });
   }
 
   render() {
     return (
-      <div className="App">
+      <ul className="list-group">
         {this.renderTasks()}
-      </div>
+      </ul>
     );
   }
 }
@@ -44,4 +44,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { deleteTask, selectTask, tasksUpdated })(TaskList);
+export default connect(mapStateToProps, {
+  deleteTask, selectTask, tasksUpdated
+})(TaskList);

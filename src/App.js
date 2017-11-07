@@ -1,9 +1,12 @@
+import './style/style.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import TaskList from './components/task-list';
 import Modal from './components/modal';
-import { fetchTasks, addTask, saveTasks, selectTask, tasksUpdated, showModal } from './actions';
+import {
+  fetchTasks, addTask, saveTasks, selectTask, tasksUpdated, showModal
+} from './actions';
 
 
 class App extends Component {
@@ -21,15 +24,31 @@ class App extends Component {
     this.props.saveTasks(this.props.tasks, (success) => {
       this.props.showModal(success);
     });
-    this.props.tasksUpdated(false);
+      this.props.tasksUpdated(false);
   }
 
   render() {
     const enableSave = !this.props.updated;
     return (
       <div className="container">
-        <button className="btn btn-primary" onClick={(e) => this.handleAddClick()}>Add Task</button>
-        <button className="btn btn-primary" disabled={enableSave} onClick={(e) => this.handleSaveClick()}>Save</button>
+        <div className="clearfix list-heading">
+          <span className="list-heading-title">Tasks</span>
+          <div className="float-right">
+            <button
+              className="btn btn-small btn-add"
+              onClick={(e) => this.handleAddClick()}
+              >
+              Add Task
+            </button>
+            <button
+              className="btn btn-small btn-save"
+              disabled={enableSave}
+              onClick={(e) => this.handleSaveClick()}
+              >
+              Save
+            </button>
+          </div>
+        </div>
         <TaskList />
         <Modal />
       </div>
@@ -44,4 +63,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { addTask, saveTasks, selectTask, tasksUpdated, fetchTasks, showModal })(App);
+export default connect(mapStateToProps, {
+  addTask, saveTasks, selectTask, tasksUpdated, fetchTasks, showModal
+})(App);

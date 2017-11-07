@@ -1,6 +1,7 @@
 import {
   FETCH_TASKS, SAVE_TASKS, ADD_TASK, DELETE_TASK, EDIT_TASK,
-  SELECT_TASK, TASKS_UPDATED, SHOW_MODAL, HIDE_MODAL } from './types';
+  SELECT_TASK, TASKS_UPDATED, SHOW_MODAL, HIDE_MODAL
+} from './types';
 import axios from 'axios';
 
 const myName = 'willramsey';

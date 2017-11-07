@@ -1,9 +1,9 @@
-import { FETCH_TASKS, SAVE_TASKS, ADD_TASK, EDIT_TASK, DELETE_TASK } from '../actions/types';
+import {
+  FETCH_TASKS, SAVE_TASKS, ADD_TASK, EDIT_TASK, DELETE_TASK
+} from '../actions/types';
 
 export default function(state = [], action) {
-  if (action.payload) {
-    var tasks = action.payload.tasks || [];
-  }
+  let tasks = action.payload ? action.payload.tasks : [];
   switch (action.type) {
     case FETCH_TASKS:
       return [ ...tasks];

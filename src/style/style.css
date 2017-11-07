@@ -1,0 +1,73 @@
+.body {
+  background-color: #F5F7F9;
+  font-family: lato;
+}
+
+.list-heading {
+  padding-bottom: 20px;
+}
+
+.list-heading-title {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.btn-add {
+  color: white;
+  font-size: small;
+  background-color: #8F9FB3;
+  margin-right: 8px;
+}
+.btn-save {
+  color: white;
+  font-size: small;
+  background-color: #5CC895;
+}
+
+.header {
+  background-color: #2E3E51;
+  height: 50px;
+  margin-bottom: 25px;
+}
+
+.task-item {
+  font-size: small;
+  font-family: lato;
+  font-weight: 600;
+  color: #A3B0C0;
+  min-height: 150px;
+  margin-bottom: 8px;
+  box-shadow: 1px 1px 1px 1px #EAECEF;
+  border-radius: 3px;
+}
+
+.modal-alert {
+  font-size: small;
+  position: fixed;
+  bottom: 75px;
+  right: 30px;
+  padding-right: 220px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.alert-success {
+  color: #5CC895;
+  background-color: #F6FFFB;
+  border-color: #5CC895;
+}
+
+.alert-danger {
+  color: #a94442;
+  border-color: #a94442;
+}
+
+.modal-alert .btn-close {
+  font-size: large;
+  position: absolute;
+  padding-top: 5px;
+  padding-right: 10px;
+  opacity: initial;
+  outline: 0;
+}
+
