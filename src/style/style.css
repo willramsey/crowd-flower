@@ -9,7 +9,8 @@
 
 .list-heading-title {
   font-size: x-large;
-  font-weight: bold;
+  font-weight: 900;
+  color: #2E3E51;
 }
 
 .btn-add {
